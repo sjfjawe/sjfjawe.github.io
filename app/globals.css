@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* Design system inspired by lucyb0207.github.io (50%), jrosser.co.uk (30%), yourawesomeusername.github.io (20%) */
+
+:root {
+  /* Light background palette - main requirement */
+  --bg: #fdfcfb;
+  --bg-elevated: #ffffff;
+
+  /* Text colors - inspired by Lucy's palette but inverted for light mode */
+  --text: #1a1614;
+  --text-muted: #6b645c;
+  --text-accent: #d4682a;
+
+  /* Accent colors - warm orange/rust from Lucy's site */
+  --accent: #ff9a5c;
+  --accent-hover: #d4682a;
+  --accent-subtle: rgba(255, 154, 92, 0.12);
+
+  /* Borders and dividers */
+  --border: rgba(106, 100, 92, 0.15);
+  --border-heavy: rgba(106, 100, 92, 0.25);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Force light mode - no dark mode switching */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #fdfcfb;
+    --text: #1a1614;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography - Lucy's serif + mono combination */
+h1, h2, h3 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.label {
+  font-family: 'Courier New', 'Monaco', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Smooth anchor scrolling with offset for sticky header */
+section {
+  scroll-margin-top: 80px;
+}
+
+/* Status badge inspired by Lucy's design */
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
