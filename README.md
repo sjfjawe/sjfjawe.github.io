@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flinda Shi - Portfolio
 
-## Getting Started
+Single-page portfolio website showcasing Platform PM expertise, AI tooling, and technical depth.
 
-First, run the development server:
+## 🚀 Live Site
+**https://sjfjawe.github.io**
+
+## ✨ Features
+
+- **Single-page design** with smooth anchor navigation
+- **5 sections**: Home, About Me, Professional, Life, Contact
+- **Visual style** inspired by:
+  - 50% lucyb0207.github.io (minimal, serif, warm accents)
+  - 30% jrosser.co.uk (clean professional)
+  - 20% yourawesomeusername.github.io (basic structure)
+- **Light background** with warm orange/rust accent colors
+- **Expandable project cards** with detailed metrics
+- **Responsive design** (mobile, tablet, desktop)
+- **SEO optimized** with Open Graph tags
+
+## 🛠️ Tech Stack
+
+- **Next.js 14** (App Router, React Server Components)
+- **TypeScript** for type safety
+- **Tailwind CSS v4** for styling
+- **GitHub Pages** for hosting
+- **GitHub Actions** for automated deployment
+
+## 📊 Key Metrics Showcased
+
+- 1,260+ Pull Requests Reviewed
+- 27 Pull Requests Authored
+- €50K Annual Savings
+- 4 Years Experience
+- 5M+ Users Enabled
+
+## 🏗️ Development
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 Content Updates Needed
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Life Section
+Currently showing placeholder content. Add your personal interests, hobbies, and activities outside work.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Contact Section
+Update with your actual:
+- LinkedIn URL
+- GitHub profile URL
+- Email address
+- Location
 
-## Learn More
+## 🎨 Design System
 
-To learn more about Next.js, take a look at the following resources:
+**Colors:**
+- Background: `#fdfcfb` (warm off-white)
+- Text: `#1a1614` (dark brown)
+- Accent: `#ff9a5c` (warm orange)
+- Muted: `#6b645c` (gray-brown)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Typography:**
+- Headings: Georgia serif
+- Labels: Courier New monospace (11px, uppercase)
+- Body: System sans-serif
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Project Structure
 
-## Deploy on Vercel
+```
+sjfjawe.github.io/
+├── .github/workflows/     # GitHub Actions deployment
+├── app/                   # Next.js app directory
+│   ├── layout.tsx        # Root layout with Header/Footer
+│   ├── page.tsx          # Main page (all sections)
+│   └── globals.css       # Global styles
+├── components/
+│   ├── Header.tsx        # Sticky nav with anchor links
+│   ├── Footer.tsx        # Footer with social links
+│   └── sections/         # Section components
+│       ├── HeroSection.tsx
+│       ├── AboutSection.tsx
+│       ├── ProfessionalSection.tsx
+│       ├── LifeSection.tsx
+│       └── ContactSection.tsx
+├── public/               # Static assets
+└── next.config.ts        # Next.js config (static export)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Site automatically deploys to GitHub Pages when pushing to `main` branch.
+
+**GitHub Actions workflow:**
+1. Checkout code
+2. Install dependencies
+3. Build Next.js (static export)
+4. Deploy to GitHub Pages
+
+## 📄 License
+
+MIT License - See LICENSE file for details
