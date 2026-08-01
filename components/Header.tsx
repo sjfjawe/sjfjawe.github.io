@@ -25,16 +25,16 @@ export default function Header() {
 
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'about-me', label: 'About Me' },
-    { id: 'professional', label: 'Professional' },
+    { id: 'about-me', label: 'About' },
+    { id: 'professional', label: 'Work' },
     { id: 'life', label: 'Life' },
     { id: 'contact', label: 'Contact' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg-elevated)] border-b border-[var(--border)] backdrop-blur-sm bg-opacity-95">
-      <div className="max-w-[1200px] mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#home" className="text-lg font-serif font-semibold tracking-tight text-[var(--text)]">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/95 border-b border-[var(--border)] backdrop-blur-sm">
+      <div className="max-w-[1200px] mx-auto px-6 h-16 flex justify-between items-center">
+        <a href="#home" className="text-base font-semibold tracking-tight text-[var(--text)]">
           Flinda Shi
         </a>
 
@@ -43,9 +43,9 @@ export default function Header() {
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`label transition-colors duration-200 ${
+              className={`text-sm transition-colors duration-200 ${
                 activeSection === item.id
-                  ? 'text-[var(--accent)]'
+                  ? 'text-[var(--accent)] font-medium'
                   : 'text-[var(--text-muted)] hover:text-[var(--text)]'
               }`}
             >
@@ -53,6 +53,13 @@ export default function Header() {
             </a>
           ))}
         </nav>
+
+        {/* Mobile menu button */}
+        <button className="md:hidden text-[var(--text-muted)]">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+        </button>
       </div>
     </header>
   );

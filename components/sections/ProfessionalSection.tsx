@@ -55,7 +55,7 @@ efficiency: "40%"`,
   {
     tag: 'Enterprise Scale',
     title: 'T2 Travel Localization',
-    summary: '4-year flagship program delivering localization across 20 languages for SAP Concur\'s travel platform',
+    summary: 'Multi-year program delivering localization across 20 languages for SAP Concur travel platform',
     problem: 'Legacy travel platform serving 5M+ users with 60% non-English traffic. Modernization required coordinated localization across web, mobile, and APIs.',
     solution: 'Multi-quarter program orchestrating 10+ cross-functional teams, vendor partnerships, and technical integration. Systematic rollout across 20 languages.',
     impact: '5M+ users enabled globally. 20 languages shipped. Multi-million dollar revenue enablement for international markets.',
@@ -71,177 +71,145 @@ export default function ProfessionalSection() {
   const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   return (
-    <section id="professional" className="min-h-screen py-32 bg-[var(--bg-elevated)]">
+    <section id="professional" className="py-24 bg-[var(--bg-elevated)]">
       <div className="max-w-[1200px] mx-auto px-6">
+        {/* Section header - no eyebrow numbering */}
         <div className="mb-16">
-          <span className="label mb-4 block">02 / Professional</span>
-          <h2 className="text-4xl md:text-5xl font-serif font-semibold mb-6">
-            Work, Projects & Impact
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-[-0.02em]">
+            Projects & Impact
           </h2>
-          <div className="w-16 h-[1px] bg-[var(--accent)]"></div>
-          <p className="text-lg text-[var(--text-muted)] mt-6 max-w-[700px]">
-            Platform PM at SAP Concur building AI-powered infrastructure and automation tools. 1,260+ GitHub PR reviews, 27 PRs authored, €50K+ in quantified savings.
+          <p className="text-[var(--text-muted)] max-w-[560px] leading-relaxed">
+            Platform PM at SAP Concur building AI-powered infrastructure and automation tools.
           </p>
         </div>
 
-        {/* Featured Projects */}
-        <div className="space-y-6 mb-16">
+        {/* Featured Projects - card grid instead of stacked list */}
+        <div className="grid lg:grid-cols-3 gap-6 mb-16">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="border border-[var(--border)] bg-[var(--bg)] p-8 hover:border-[var(--accent)] transition-all cursor-pointer"
+              className="border border-[var(--border)] bg-[var(--bg)] p-6 hover:border-[var(--accent)] transition-all cursor-pointer flex flex-col"
               onClick={() => setExpandedProject(expandedProject === index ? null : index)}
             >
-              <div className="flex items-start justify-between mb-4">
-                <span className="label text-[var(--accent)]">{project.tag}</span>
-                <button className="text-[var(--text-muted)] hover:text-[var(--accent)] transition-colors">
-                  {expandedProject === index ? '−' : '+'}
-                </button>
-              </div>
+              <span className="text-xs font-medium text-[var(--accent)] mb-3">{project.tag}</span>
 
-              <h3 className="text-2xl font-serif font-semibold mb-3">{project.title}</h3>
-              <p className="text-[var(--text-muted)] mb-6 leading-relaxed">{project.summary}</p>
+              <h3 className="text-xl font-semibold mb-3 leading-tight">{project.title}</h3>
+              <p className="text-sm text-[var(--text-muted)] mb-6 leading-relaxed flex-grow">{project.summary}</p>
 
-              {/* Metrics */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              {/* Metrics - inline */}
+              <div className="flex gap-6 pt-4 border-t border-[var(--border)]">
                 {project.metrics.map((metric, idx) => (
-                  <div key={idx} className="border-l-2 border-[var(--accent)] pl-4">
-                    <div className="text-2xl font-serif font-semibold text-[var(--accent)]">{metric.value}</div>
-                    <div className="label">{metric.label}</div>
+                  <div key={idx}>
+                    <div className="text-xl font-semibold text-[var(--accent)]">{metric.value}</div>
+                    <div className="text-xs text-[var(--text-muted)]">{metric.label}</div>
                   </div>
                 ))}
               </div>
-
-              {/* Expanded Content */}
-              {expandedProject === index && (
-                <div className="mt-8 pt-8 border-t border-[var(--border)] space-y-6">
-                  <div>
-                    <h4 className="font-semibold mb-2 text-[var(--accent)]">Problem</h4>
-                    <p className="text-[var(--text-muted)] leading-relaxed">{project.problem}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 text-[var(--accent)]">Solution</h4>
-                    <p className="text-[var(--text-muted)] leading-relaxed">{project.solution}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 text-[var(--accent)]">Impact</h4>
-                    <p className="text-[var(--text-muted)] leading-relaxed">{project.impact}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold mb-2 text-[var(--accent)]">Technical Details</h4>
-                    <p className="text-[var(--text-muted)] leading-relaxed">{project.techDetails}</p>
-                  </div>
-                  {project.code && (
-                    <div>
-                      <h4 className="font-semibold mb-2 text-[var(--accent)]">Code Snippet</h4>
-                      <pre className="bg-[var(--accent-subtle)] border border-[var(--border)] p-4 text-sm font-mono overflow-x-auto">
-                        <code>{project.code}</code>
-                      </pre>
-                    </div>
-                  )}
-                </div>
-              )}
             </div>
           ))}
         </div>
 
-        {/* Experience Timeline */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-serif font-semibold mb-8">Experience</h3>
-          <div className="space-y-6">
+        {/* Expanded Content Modal-ish */}
+        {expandedProject !== null && (
+          <div className="mb-16 border border-[var(--accent)] bg-[var(--bg)] p-8">
+            <div className="flex justify-between items-start mb-6">
+              <div>
+                <span className="text-xs font-medium text-[var(--accent)] mb-2 block">{projects[expandedProject].tag}</span>
+                <h3 className="text-2xl font-semibold">{projects[expandedProject].title}</h3>
+              </div>
+              <button
+                onClick={() => setExpandedProject(null)}
+                className="text-[var(--text-muted)] hover:text-[var(--text)] transition-colors text-2xl leading-none"
+              >
+                ×
+              </button>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-medium mb-2">Problem</h4>
+                  <p className="text-sm text-[var(--text-muted)] leading-relaxed">{projects[expandedProject].problem}</p>
+                </div>
+                <div>
+                  <h4 className="font-medium mb-2">Solution</h4>
+                  <p className="text-sm text-[var(--text-muted)] leading-relaxed">{projects[expandedProject].solution}</p>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-medium mb-2">Impact</h4>
+                  <p className="text-sm text-[var(--text-muted)] leading-relaxed">{projects[expandedProject].impact}</p>
+                </div>
+                <div>
+                  <h4 className="font-medium mb-2">Technical Details</h4>
+                  <p className="text-sm text-[var(--text-muted)] leading-relaxed">{projects[expandedProject].techDetails}</p>
+                </div>
+                {projects[expandedProject].code && (
+                  <div>
+                    <h4 className="font-medium mb-2">Code</h4>
+                    <pre className="bg-zinc-900 text-zinc-100 p-4 text-xs font-mono overflow-x-auto rounded">
+                      <code>{projects[expandedProject].code}</code>
+                    </pre>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Experience - simplified timeline */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <div>
+            <h3 className="text-xl font-semibold mb-6">Experience</h3>
             <div className="border-l-2 border-[var(--accent)] pl-6">
-              <div className="label mb-2">2022 - Present</div>
-              <h4 className="text-xl font-serif font-semibold mb-2">Platform Product Manager</h4>
-              <p className="text-[var(--text-muted)] mb-2">SAP Concur • Localization Infrastructure</p>
+              <div className="text-sm text-[var(--text-muted)] mb-1">2022 - Present</div>
+              <h4 className="font-semibold mb-1">Platform Product Manager</h4>
+              <p className="text-sm text-[var(--text-muted)] mb-3">SAP Concur - Localization Infrastructure</p>
               <p className="text-sm text-[var(--text-muted)] leading-relaxed">
-                Building AI-powered tools and automation infrastructure for global product delivery. Leading translation quality initiatives, process automation, and cross-functional platform improvements.
+                Building AI-powered tools and automation for global product delivery. Leading translation quality, process automation, and cross-functional platform improvements.
               </p>
             </div>
           </div>
-        </div>
 
-        {/* Technical Skills */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-serif font-semibold mb-8">Technical Skills & Tools</h3>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="label mb-4">AI & Automation</h4>
-              <div className="flex flex-wrap gap-2">
-                {['Claude AI', 'GitHub Actions', 'Workflow Orchestration', 'Process Automation'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 border border-[var(--border)] text-sm">
-                    {skill}
-                  </span>
-                ))}
+          {/* Skills - grouped cards instead of pill tags */}
+          <div>
+            <h3 className="text-xl font-semibold mb-6">Skills</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="p-4 border border-[var(--border)] bg-[var(--bg)]">
+                <h4 className="text-sm font-medium mb-2">AI & Automation</h4>
+                <p className="text-xs text-[var(--text-muted)]">Claude AI, GitHub Actions, Workflow Orchestration</p>
               </div>
-            </div>
-            <div>
-              <h4 className="label mb-4">Localization & Infrastructure</h4>
-              <div className="flex flex-wrap gap-2">
-                {['XML/JSON', 'i18n Standards', 'Translation Workflows', 'GLOB-187'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 border border-[var(--border)] text-sm">
-                    {skill}
-                  </span>
-                ))}
+              <div className="p-4 border border-[var(--border)] bg-[var(--bg)]">
+                <h4 className="text-sm font-medium mb-2">Localization</h4>
+                <p className="text-xs text-[var(--text-muted)]">i18n Standards, XML/JSON, GLOB-187</p>
               </div>
-            </div>
-            <div>
-              <h4 className="label mb-4">Product & Design</h4>
-              <div className="flex flex-wrap gap-2">
-                {['Figma', 'Process Design', 'Cross-functional Leadership', 'Platform Thinking'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 border border-[var(--border)] text-sm">
-                    {skill}
-                  </span>
-                ))}
+              <div className="p-4 border border-[var(--border)] bg-[var(--bg)]">
+                <h4 className="text-sm font-medium mb-2">Product & Design</h4>
+                <p className="text-xs text-[var(--text-muted)]">Figma, Process Design, Platform Thinking</p>
               </div>
-            </div>
-            <div>
-              <h4 className="label mb-4">Technical Depth</h4>
-              <div className="flex flex-wrap gap-2">
-                {['Git (1,260+ PR reviews)', 'Documentation', 'Code Contributions', 'Technical Writing'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 border border-[var(--border)] text-sm">
-                    {skill}
-                  </span>
-                ))}
+              <div className="p-4 border border-[var(--border)] bg-[var(--bg)]">
+                <h4 className="text-sm font-medium mb-2">Technical</h4>
+                <p className="text-xs text-[var(--text-muted)]">Git, Documentation, Code Review</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* GitHub Activity */}
-        <div className="border border-[var(--border)] bg-[var(--bg)] p-8">
-          <h3 className="text-2xl font-serif font-semibold mb-6">GitHub Activity</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div>
-              <div className="text-4xl font-serif font-semibold text-[var(--accent)] mb-2">1,260+</div>
-              <p className="text-sm text-[var(--text-muted)]">
-                Pull Requests Reviewed<br />
-                <span className="text-xs">(99th percentile for PM role)</span>
-              </p>
-            </div>
-            <div>
-              <div className="text-4xl font-serif font-semibold text-[var(--accent)] mb-2">27</div>
-              <p className="text-sm text-[var(--text-muted)]">
-                Pull Requests Authored<br />
-                <span className="text-xs">(Infrastructure, automation, docs)</span>
-              </p>
-            </div>
-            <div>
-              <div className="text-4xl font-serif font-semibold text-[var(--accent)] mb-2">4</div>
-              <p className="text-sm text-[var(--text-muted)]">
-                Years Active<br />
-                <span className="text-xs">(Consistent technical engagement)</span>
-              </p>
-            </div>
+        {/* GitHub Stats - horizontal layout */}
+        <div className="flex flex-wrap gap-8 p-6 border border-[var(--border)] bg-[var(--bg)]">
+          <div>
+            <div className="text-3xl font-semibold text-[var(--accent)] mb-1">1,260+</div>
+            <p className="text-sm text-[var(--text-muted)]">PRs Reviewed</p>
           </div>
-        </div>
-
-        <div className="mt-12">
-          <a
-            href="#contact"
-            className="inline-block px-8 py-3 bg-[var(--accent)] text-white font-medium rounded-sm hover:bg-[var(--accent-hover)] transition-colors"
-          >
-            Let's Connect →
-          </a>
+          <div>
+            <div className="text-3xl font-semibold text-[var(--accent)] mb-1">27</div>
+            <p className="text-sm text-[var(--text-muted)]">PRs Authored</p>
+          </div>
+          <div>
+            <div className="text-3xl font-semibold text-[var(--accent)] mb-1">4</div>
+            <p className="text-sm text-[var(--text-muted)]">Years Active</p>
+          </div>
         </div>
       </div>
     </section>

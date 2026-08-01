@@ -1,25 +1,29 @@
 @import "tailwindcss";
 
-/* Design system inspired by lucyb0207.github.io (50%), jrosser.co.uk (30%), yourawesomeusername.github.io (20%) */
+/*
+ * Design System - /taste-skill compliant
+ * Design Read: Developer PM portfolio for hiring managers
+ * Dials: VARIANCE 6 / MOTION 5 / DENSITY 4
+ * Palette: Cobalt + Cream (not the banned beige+brass)
+ */
 
 :root {
-  /* Light background palette - main requirement */
-  --bg: #fdfcfb;
-  --bg-elevated: #ffffff;
+  /* Light background - clean white, not warm cream */
+  --bg: #ffffff;
+  --bg-elevated: #fafafa;
 
-  /* Text colors - inspired by Lucy's palette but inverted for light mode */
-  --text: #1a1614;
-  --text-muted: #6b645c;
-  --text-accent: #d4682a;
+  /* Text - cool neutral, not warm espresso */
+  --text: #18181b;
+  --text-muted: #71717a;
 
-  /* Accent colors - warm orange/rust from Lucy's site */
-  --accent: #ff9a5c;
-  --accent-hover: #d4682a;
-  --accent-subtle: rgba(255, 154, 92, 0.12);
+  /* Accent - cobalt blue, single saturated pop */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-subtle: rgba(37, 99, 235, 0.08);
 
-  /* Borders and dividers */
-  --border: rgba(106, 100, 92, 0.15);
-  --border-heavy: rgba(106, 100, 92, 0.25);
+  /* Borders - cool zinc */
+  --border: rgba(113, 113, 122, 0.15);
+  --border-heavy: rgba(113, 113, 122, 0.25);
 }
 
 @theme inline {
@@ -32,8 +36,8 @@
 /* Force light mode - no dark mode switching */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #fdfcfb;
-    --text: #1a1614;
+    --bg: #ffffff;
+    --text: #18181b;
   }
 }
 
@@ -50,23 +54,25 @@ html {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-  line-height: 1.7;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Typography - Lucy's serif + mono combination */
-h1, h2, h3 {
-  font-family: 'Georgia', 'Times New Roman', serif;
+/* Typography - Geist Sans for everything (no serif) */
+h1, h2, h3, h4 {
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.15;
 }
 
+/* Labels - Geist Mono, small caps */
 .label {
-  font-family: 'Courier New', 'Monaco', monospace;
+  font-family: var(--font-geist-mono), 'Courier New', monospace;
   font-size: 11px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
@@ -76,16 +82,16 @@ section {
   scroll-margin-top: 80px;
 }
 
-/* Status badge inspired by Lucy's design */
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  animation: pulse 2s infinite;
+/* Buttons - tactile feedback */
+button, .btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+button:active, .btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Links */
+a {
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
