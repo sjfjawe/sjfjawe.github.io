@@ -1,48 +1,65 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import DepthGauge from "@/components/DepthGauge";
 import Footer from "@/components/Footer";
+import ScrollEffects from "@/components/ScrollEffects";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Flinda Shi - Platform PM | AI Tools & Infrastructure",
-  description: "Platform Product Manager building AI-powered tools and infrastructure. 1,260+ GitHub PRs reviewed, 623-line AI skill, €50K annual savings. Technical depth meets platform thinking.",
-  keywords: "Platform PM, Product Manager, AI, Claude AI, GitHub, Localization, SAP Concur, Infrastructure",
+  description:
+    "Platform Product Manager building AI-powered tools and infrastructure. 1,260+ GitHub PRs reviewed, 623-line AI skill, €50K annual savings.",
   authors: [{ name: "Flinda Shi" }],
   openGraph: {
     title: "Flinda Shi - Platform PM",
     description: "Building AI-powered infrastructure for global product delivery",
-    type: "website",
     url: "https://sjfjawe.github.io",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Flinda Shi - Platform PM",
+    description: "Building AI-powered infrastructure for global product delivery",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="min-h-full flex flex-col">
+      <body>
         <Header />
-        <main className="flex-1">{children}</main>
+        <DepthGauge />
+        <main>{children}</main>
         <Footer />
+        <ScrollEffects />
       </body>
     </html>
   );
 }
-
