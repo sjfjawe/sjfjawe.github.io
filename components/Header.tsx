@@ -1,6 +1,5 @@
-const NAV_ITEMS = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
+const LINKS = [
+  { id: "about", label: "Intro" },
   { id: "work", label: "Work" },
   { id: "life", label: "Life" },
   { id: "contact", label: "Contact" },
@@ -8,25 +7,22 @@ const NAV_ITEMS = [
 
 export default function Header() {
   return (
-    <nav className="site-nav">
+    <nav className="site-nav" aria-label="Primary">
       <div className="nav-inner">
-        <a href="#home" className="logo">
-          Flinda Shi<span>.</span>
+        <a href="#home" className="nav-name">
+          Flinda Shi
         </a>
         <ul className="nav-links">
-          {NAV_ITEMS.map((item, i) => (
-            <li key={item.id}>
-              <a
-                href={`#${item.id}`}
-                className={`nav-link${i === 0 ? " active" : ""}`}
-                data-target={item.id}
-              >
-                {item.label}
+          {LINKS.map((l) => (
+            <li key={l.id}>
+              <a href={`#${l.id}`} data-nav-link={l.id}>
+                {l.label}
               </a>
             </li>
           ))}
         </ul>
       </div>
+      <span className="nav-progress" aria-hidden="true" />
     </nav>
   );
 }

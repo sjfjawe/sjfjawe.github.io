@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import DepthGauge from "@/components/DepthGauge";
+import DayRail from "@/components/DayRail";
 import Footer from "@/components/Footer";
-import ScrollEffects from "@/components/ScrollEffects";
+import DayCycle from "@/components/DayCycle";
+import ClockCursor from "@/components/ClockCursor";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -27,21 +28,33 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const DESCRIPTION =
+  "Platform technical PM at SAP Concur. Automated translation delivery for 33 languages and 5M+ users — 250+ hrs/month of manual work removed, 1,260+ pull requests reviewed, 3 AI skills shipped.";
+
 export const metadata: Metadata = {
-  title: "Flinda Shi - Platform PM | AI Tools & Infrastructure",
-  description:
-    "Platform Product Manager building AI-powered tools and infrastructure. 1,260+ GitHub PRs reviewed, 623-line AI skill, €50K annual savings.",
+  title: "Flinda Shi — Platform Technical PM",
+  description: DESCRIPTION,
   authors: [{ name: "Flinda Shi" }],
+  keywords: [
+    "platform product manager",
+    "technical product manager",
+    "developer experience",
+    "localization infrastructure",
+    "internal tooling",
+    "AI tooling",
+    "SAP Concur",
+  ],
   openGraph: {
-    title: "Flinda Shi - Platform PM",
-    description: "Building AI-powered infrastructure for global product delivery",
+    title: "Flinda Shi — Platform Technical PM",
+    description: DESCRIPTION,
     url: "https://sjfjawe.github.io",
+    siteName: "Flinda Shi",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "Flinda Shi - Platform PM",
-    description: "Building AI-powered infrastructure for global product delivery",
+    title: "Flinda Shi — Platform Technical PM",
+    description: DESCRIPTION,
   },
 };
 
@@ -55,10 +68,11 @@ export default function RootLayout({
     >
       <body>
         <Header />
-        <DepthGauge />
+        <DayRail />
         <main>{children}</main>
         <Footer />
-        <ScrollEffects />
+        <DayCycle />
+        <ClockCursor />
       </body>
     </html>
   );

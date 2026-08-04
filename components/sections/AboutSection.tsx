@@ -1,88 +1,66 @@
-const VALUES = [
-  {
-    title: "Technical depth",
-    desc: "1,260+ PR reviews prove I work at the code level",
-  },
-  {
-    title: "Preventive over reactive",
-    desc: "Quality checks at design time, not after deployment",
-  },
-  {
-    title: "Systematic thinking",
-    desc: "Solve problems once for many teams",
-  },
-  {
-    title: "Quantified impact",
-    desc: "Every initiative has measurable outcomes",
-  },
+const PRINCIPLES = [
+  { t: "Prevention over correction", d: "Catch it at design time, not in production." },
+  { t: "Artifacts over meetings", d: "Docs and tools keep working when I'm not there." },
+  { t: "Code-level fluency", d: "I read the diff before I write the ticket." },
+  { t: "Evidence over adjectives", d: "Every number here traces to a ticket or a PR." },
 ];
 
 export default function AboutSection() {
   return (
-    <section id="about">
+    <section id="about" data-zone="light">
       <div className="container">
-        <div className="section-head reveal">
-          <span className="eyebrow">01 — About</span>
-          <h2>
-            Platform PM who builds tools
-            <br />
-            that scale beyond one team.
-          </h2>
-          <p>From executor to architect to innovator.</p>
+        <div className="head reveal">
+          <span className="eyebrow">00:00 — 08:00 · Intro</span>
+          <h2 className="flow">Hi, I&apos;m Flinda.</h2>
         </div>
 
-        <div className="about-grid">
-          <div className="about-copy">
-            <div className="panel reveal">
-              <h3>Philosophy</h3>
-              <p>
-                The best infrastructure is the kind teams don&apos;t think
-                about. It just works. My career has been defined by building
-                tools and systems that scale beyond my own team, preventing
-                problems before they happen.
-              </p>
-              <p>
-                Build one tool that saves 10 teams 20 hours each, and
-                you&apos;ve created 200 hours of capacity for meaningful
-                work. That&apos;s platform thinking.
-              </p>
-            </div>
-            <div className="panel reveal">
-              <h3>Origin</h3>
-              <p>
-                Started as an executor shipping features and managing
-                roadmaps. Kept noticing the same problems recurring across
-                teams: manual processes, late quality checks, infrastructure
-                that didn&apos;t scale.
-              </p>
-              <p>
-                The turning point: building a 623‑line Claude AI skill that
-                prevented €50K in annual rework by catching translation
-                issues during design. That&apos;s when I realized where I
-                add the most value.
-              </p>
-            </div>
-          </div>
-
-          <div className="about-side reveal">
-            <div className="panel manifest">
-              <span className="tab">values.json</span>
-              <div className="manifest-body">
-                <ul className="values-list">
-                  {VALUES.map((v) => (
-                    <li key={v.title}>
-                      <span className="mark"></span>
-                      <div>
-                        <strong>{v.title}</strong>
-                        <span>{v.desc}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+        <div className="prose reveal">
+          <p>
+            I&apos;m a <strong>platform-minded technical PM</strong> at{" "}
+            <strong>SAP Concur</strong>, where I own the infrastructure that gets
+            our products into <strong>33 languages</strong> for{" "}
+            <strong>5M+ users</strong> — the delivery pipeline, the schema it
+            speaks, and the PR checks that enforce it. My users are internal:
+            12+ dev teams, 20+ designers, and our vendor partners.
+          </p>
+          <p>
+            I started in 2022 doing the reactive version of this job: triaging
+            defects, chasing vendors, unblocking releases. After{" "}
+            <strong>186 support tickets</strong> the pattern was obvious — almost
+            every defect was created much earlier, in a design or a string ID,
+            and was preventable for free.
+          </p>
+          <p>
+            So I moved upstream. A design-review framework, then a metrics
+            dashboard, then an automated pipeline, then{" "}
+            <strong>AI tooling</strong> on top of it. Same problem, one layer
+            lower each time.
+          </p>
+          <p>
+            I&apos;m still working on prioritisation when an urgent ask collides
+            with slow strategic work, and on tying localization metrics to
+            revenue by region rather than ticket throughput.
+            Outside work I build small tools nobody asked for and keep the
+            unstructured half on{" "}
+            <a
+              href="https://instagram.com/sjfjawe"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram
+            </a>
+            .
+          </p>
         </div>
+
+        <ul className="principles reveal">
+          {PRINCIPLES.map((p) => (
+            <li key={p.t}>
+              <b>{p.t}</b>
+              {p.d}
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
