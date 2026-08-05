@@ -112,7 +112,7 @@ export default function DayCycle() {
 
       root.style.setProperty("--tod-pct", `${((t / 24) * 100).toFixed(3)}%`);
       root.style.setProperty("--scroll-pct", `${(p * 100).toFixed(2)}%`);
-      root.style.setProperty("--hand-h", (((t - 12) / 24) * 360).toFixed(2));
+      root.style.setProperty("--hand-h", ((t / 24) * 360).toFixed(2));
       root.style.setProperty("--hand-m", ((t % 1) * 360).toFixed(2));
 
       const hh = Math.min(23, Math.floor(t));
