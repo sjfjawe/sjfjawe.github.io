@@ -10,12 +10,11 @@ export default function ContactSection() {
     <section id="contact" data-zone="dark">
       <div className="container">
         <div className="head reveal">
-          <span className="eyebrow">23:00 · Contact</span>
-          <h2 className="flow">Let&apos;s talk.</h2>
+          <span className="eyebrow">23:00 MIDNIGHT · Contact</span>
+          <h2 className="flow">Let&apos;s connect.</h2>
           <p className="sub">
-            Looking for platform or technical PM work — internal tooling,
-            developer experience, pipelines, AI-assisted workflows. Happy to walk
-            through any number on this page and show you where it came from.
+            Looking for technical or localization PM — 
+            developer experience, internationalization, AI-assisted workflows? Happy to walk & let's connect. I also love talking about bouldering, and traveling.🧗🏻
           </p>
         </div>
 

@@ -1,78 +1,94 @@
 /* Résumé as a timeline, newest first. `mark` = a milestone rather than a
    delivery (role change, conference, training). */
 const TIMELINE = [
+{
+  org: "Localization AI quality framework",
+  role: "Technical PM & builder",
+  dates: "2026",
+  desc: "Led a cross-functional AI quality framework that moved localization risk detection upstream across UX, content, and engineering workflows. Standardized pre-localization checks for UI writing for global readiness, SAP Product Standard Globalization compliance, and developer i18n best practices, reducing supplier rework risk, improve user satisfaction and experience, and creating a reusable operating model for platform-wise PR checks.",
+},
   {
-    org: "TORCH translation pipeline",
-    role: "Pipeline architect",
-    dates: "2024 — 2026",
-    desc: "Replaced a manual SharePoint workflow with a bot-driven GitHub App and Lambda pipeline, six source formats collapsed into one schema. 250+ hrs/month removed; delivery 4 weeks → 1 week.",
+  org: "TORCH translation pipeline",
+  role: "Technical PM & cross-team coordinator",
+  dates: "2025",
+  desc: "Monitored a centralized & shared control, schema-validated JSON localization pipeline replacing fragmented team-specific workflows. Onboarded 12+ dev teams to adoption, enabling GitHub-based supplier handoff, automated quality checks, 4-week to 1-week delivery, and 250+ manual hours/month eliminated.",
+},
+{
+  org: "Concur new language expansion",
+  role: "Technical PM & cross-team coordinator",
+  dates: "2025",
+  desc: "Drove a cross-functional globalization initiative to close language parity gaps between SAP Concur and SAP S/4HANA, delivering Slovenian, Greek, Malay, and Vietnamese across product, mobile, and release workflows. Led planning, localization, engineering integration, linguistic validation, and customer rollout, creating a repeatable operating model for future language launches and strengthening support for global enterprise customers adoption."
+},
+{
+  org: "WalkMe localization integration",
+  role: "Localization integration planner",
+  dates: "2024",
+  desc: "Supported localization workflow integration for WalkMe following its acquisition into SAP, helping align a newly acquired external system with the established localization processes. Contributed to planning around translation readiness, GitHub workflow integration, segment ID and metadata preservation & harmonization."
+},
+{
+  org: "AWS GameDay: cloud security challenge",
+  role: "Participant",
+  dates: "July 2024",
+  desc: "Hands-on cloud security skills learning through GameDay focused on securing application infrastructure against real-world threats. Learnt AWS services including VPC, S3, WAF, RDS, and EC2 on database protection, SQL injection risk, and access control. Strengthened practical understanding of cloud security architecture.",
+  mark: true,
+},
+{
+  org: "McKinsey Asian Leadership Essentials Program",
+  role: "Cohort participant",
+  dates: "April 2024",
+  desc: "Strengthened executive presence and cross-functional leadership capabilities, with a focus on career progression and broader organizational influence. Applied identity-based leadership frameworks, communication discipline, and sponsor-oriented career planning to improve stakeholder engagement for leadership audiences.",
+  mark: true,
   },
   {
-    org: "UILOC-1959 NUI migration",
-    role: "Cross-team coordination",
-    dates: "2026",
-    desc: "11 PRs over 3 months aligning 12+ dev teams with no formal mandate, preventing duplicate translation spend across two pipelines.",
+    org: "Concur Travel modernization",
+    role: "Localization Product Manager",
+    dates: "2023-2024",
+    desc: "Led localization product management for SAP Concur’s flagship new Travel product modernization program, embedding localization into design, engineering, and release workflows across all travel verticals. Drove proactive UX design review & feedback intake processes, language usability testing, terminology resource curation, vendor quality operations, and frontend i18n framework readiness across 29 languages for 25M+ global users, helping deliver a scalable localization operating model with 80+ design reviews, 50+ language usability testing findings triaged."
   },
-  {
-    org: "translator-context AI skill",
-    role: "Built it",
-    dates: "2026",
-    desc: "623-line Claude skill that writes translator context from a diff and enforces string metadata at review time. The TORCH team forked it for security checks.",
-  },
-  {
-    org: "Asian Leadership Essentials",
-    role: "SAP leadership program",
-    dates: "2024",
-    desc: "",
-    mark: true,
-  },
-  {
-    org: "T2 Travel localization",
-    role: "Localization lead",
-    dates: "2023 — 2024",
-    desc: "Built the Language Acceptance Testing framework for the Travel platform rewrite and diagnosed the string-ID mapping failures behind mistranslations. 5M+ users, 96% accuracy.",
-  },
-  {
-    org: "Grace Hopper Conference",
-    role: "10+ sessions — AI/ML, serverless, platform PM",
-    dates: "2023",
-    desc: "",
-    mark: true,
-  },
+{
+  org: "Grace Hopper Conference",
+  role: "Online Attendee",
+  dates: "September 2023",
+  desc: "Attended 10+ sessions across AI/ML, serverless & cloud computing, product management, and human-centered data science. Applied conference learnings into practical operations, i.e. AI tool exploration, dashboard building, design best-practices advocacy, and platform-framing for localization enablement.",
+  mark: true,
+},
   {
     org: "Localization intelligence dashboard",
     role: "Product owner",
-    dates: "2022 — 2026",
-    desc: "The team's first metrics platform, pulling Jira and GitHub into one view. Quarterly reporting 8 hours → 30 minutes; surfaced the 40% workload rise behind a headcount conversation.",
+    dates: "2023",
+    desc: "Initiated and owned Concur's first localization metrics dashboard, pulling Jira and GitHub stats into a decision-ready views. Quarterly reporting 8h → 30min; improved visibility for leadership and product stakeholders.",
   },
   {
     org: "UX translatability review framework",
     role: "Process owner",
-    dates: "2022 — 2026",
-    desc: "A design-time quality gate on a 2-day SLA. 80+ reviews, ~100 bugs prevented, designer adoption 60% → 95%.",
+    dates: "2023",
+    desc: "Built design-phase localization reviews, wiki guidance, and office hours; completed 80+ UX reviews, prevented ~100 bugs, and improved design global readiness."
+
   },
   {
     org: "SAP Concur",
     role: "Localization Product Manager — joined",
     dates: "2022",
-    desc: "",
+    desc: "Led Jira backlog grooming, reducing stale tickets from 110+ to under 30, and templatized intake workflows to reduce operational debt. Established SAPTerm governance, analyzed terminology assets, and partnered with stakeholders to close gaps in multilingual terminology management.",
     mark: true,
   },
 ];
 
 const NEXT = [
-  { t: "One localization platform", d: "Shared i18n libraries and quality gates across every product." },
-  { t: "MT / LLM quality evaluation", d: "An eval harness so post-editing can safely cover more content." },
-  { t: "ROI by market", d: "Language investment argued with revenue data, not ticket counts." },
+  { t: "Game Localization Engineer Intern (6 months) @Boltrend Games", d: " Coordinated localization for four mobile games across vendors, developers, and art teams, managing deliverables and timelines." },
+  { t: "Software Localization Engineer Intern (3 months) @Welocalize", d: " Supported Autodesk Inventor localization across 13 languages through UAT, i18n defect tracking, TMS integration, and Perl/Jenkins automation for 5+ localized releases." },
+  { t: "User Research Intern (6 months) @NetEase Games", d: " Virtual & in-person player tests and interviews. Collaborated with product/research teams to engaged key YouTuber to distribute & launch campaign." },
 ];
 
 const SKILLS = [
-  ["Jira / JQL, dashboards", "Expert"],
-  ["XML / JSON, i18n formats", "Expert"],
-  ["GitHub Actions, automation", "Advanced"],
-  ["Claude AI skills, prompt design", "Advanced"],
-  ["intl-runtime, XTM, SAPterm", "Advanced"],
-  ["SQL, Figma review", "Proficient"],
+  ["Jira, GitHub, Figma", "Expert"],
+  ["Localization, globalization, internationalization", "Expert"],
+  ["Linguistic testing, language assets management", "Advanced"],
+  ["Vendor management, cross-functional collaboration", "Advanced"],
+    ["AI skill, agent, MCP, hook, harness", "Proficient"],
+      ["Software Development workflow", "Proficient"],
+["Metrics & reporting", "Proficient"],
+  ["GTM operations, Field readiness support", "Proficient"],
 ];
 
 export default function ProfessionalSection() {
@@ -80,7 +96,7 @@ export default function ProfessionalSection() {
     <section id="work" data-zone="light">
       <div className="container">
         <div className="head reveal">
-          <span className="eyebrow">08:00 — 16:00 · Work</span>
+          <span className="eyebrow">08:00 — 16:00 BEFORE SUNSET · Work</span>
           <h2 className="flow">What I&apos;ve shipped.</h2>
           <p className="sub">
             Localization Product Manager at SAP Concur, 2022 to now. Each step
@@ -104,7 +120,7 @@ export default function ProfessionalSection() {
 
         <div className="two-col">
           <div className="col reveal">
-            <h3>Where I&apos;m heading</h3>
+            <h3>Past Experiences</h3>
             <ul>
               {NEXT.map((n) => (
                 <li key={n.t}>
